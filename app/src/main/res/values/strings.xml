@@ -6,4 +6,9 @@
     <string name="image_has_not_chosen_yet">Image has not chosen yet. Please choose image</string>
     <string name="category_has_not_chosen_yet">Category has not chosen yet</string>
 
+    <string name="home">Home</string>
+    <string name="liked">Liked</string>
+    <string name="about">About</string>
+
+
 </resources>
