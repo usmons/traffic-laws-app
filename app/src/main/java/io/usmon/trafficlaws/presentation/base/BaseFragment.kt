@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBinding
@@ -74,5 +76,9 @@ abstract class BaseFragment<VM : ViewModel, VB : ViewBinding>(
                 context.setVisibilityBottomNavigation(it)
             }
         }
+    }
+
+    fun actionBar(actionBar: ActionBar.() -> Unit) {
+        (activity as? AppCompatActivity)?.supportActionBar?.actionBar()
     }
 }

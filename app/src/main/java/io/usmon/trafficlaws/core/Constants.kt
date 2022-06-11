@@ -6,4 +6,6 @@ object Constants {
 
     const val DB_NAME = "traffic_laws_db"
     const val DB_VERSION = 1
+
+    const val CATEGORY_STATE = "category_state"
 }
