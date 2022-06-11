@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Traffic Laws</string>
+
+    <string name="title_could_not_be_empty">Title couldn\'t be empty</string>
+    <string name="desc_could_not_be_empty">Description couldn\'t be empty</string>
+    <string name="image_has_not_chosen_yet">Image has not chosen yet. Please choose image</string>
+    <string name="category_has_not_chosen_yet">Category has not chosen yet</string>
+
 </resources>
