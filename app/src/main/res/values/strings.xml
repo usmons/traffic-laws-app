@@ -10,6 +10,8 @@
     <string name="liked">Liked</string>
     <string name="about">About</string>
     <string name="add_law">Add Law</string>
+    <string name="law_deleted">Law has successfully deleted</string>
+    <string name="laws_not_available">Traffic laws are not available yet.</string>
 
 
 </resources>

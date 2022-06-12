@@ -8,10 +8,14 @@ import androidx.fragment.app.viewModels
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import io.usmon.trafficlaws.R
+import io.usmon.trafficlaws.core.extensions.collect
+import io.usmon.trafficlaws.core.extensions.onPageSelected
 import io.usmon.trafficlaws.databinding.FragmentHomeBinding
 import io.usmon.trafficlaws.domain.model.Category
 import io.usmon.trafficlaws.presentation.base.BaseFragment
 import io.usmon.trafficlaws.presentation.home.adapter.HomePagerAdapter
+import io.usmon.trafficlaws.presentation.home.util.HomeChannel
+import io.usmon.trafficlaws.presentation.home.util.HomeEvent
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(FragmentHomeBinding::inflate) {
@@ -32,6 +36,24 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(FragmentHo
             tab.text = Category.getCapitalizedNameByPosition(position)
         }.attach()
 
+        //UI state
+        collect(viewModel.homeState) { state ->
+            binding.pager.currentItem = state.pagerPosition
+        }
+
+        binding.pager.onPageSelected { position ->
+            viewModel.onEvent(HomeEvent.PagerChanged(position))
+        }
+
+        //Events channel
+        collect(viewModel.homeChannel) { event ->
+            when (event) {
+                HomeChannel.AddLaw -> {
+                    //TODO: Navigate to add_edit fragment
+                }
+            }
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -42,7 +64,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(FragmentHo
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.add_law -> {
-                //TODO: Navigate to add_edit fragment.
+                viewModel.onEvent(HomeEvent.AddLaw)
             }
         }
         return super.onOptionsItemSelected(item)
