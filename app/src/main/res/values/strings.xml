@@ -12,6 +12,10 @@
     <string name="add_law">Add Law</string>
     <string name="law_deleted">Law has successfully deleted</string>
     <string name="laws_not_available">Traffic laws are not available yet.</string>
-
+    <string name="click_on_a_picture_of_a_road_sign_to_add_that">Click on a picture of a road sign to add that</string>
+    <string name="the_name_of_the_road_sign">The name of the road sign</string>
+    <string name="the_description_of_the_road_sign">The description of the road sign</string>
+    <string name="save">Save</string>
+    <string name="choose_category">Choose a category</string>
 
 </resources>

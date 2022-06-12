@@ -8,4 +8,7 @@ object Constants {
     const val DB_VERSION = 1
 
     const val CATEGORY_STATE = "category_state"
+
+    const val ADD_EDIT = "add_edit"
+    const val EDIT_LAW = "edit_law"
 }

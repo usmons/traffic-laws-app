@@ -1,7 +1,7 @@
 package io.usmon.trafficlaws.domain.model
 
+import io.usmon.trafficlaws.core.extensions.capitalize
 import java.io.Serializable
-import java.util.*
 
 // Created by Usmon Abdurakhmanv on 6/11/2022.
 
@@ -19,10 +19,17 @@ enum class Category : Serializable {
                 2 -> Prohibition.name
                 3 -> Commander.name
                 else -> Warning.name
-            }.replaceFirstChar {
-                if (it.isLowerCase()) it.titlecase(Locale.getDefault())
-                else it.toString()
+            }.capitalize()
+        }
+
+        fun getPosition(category: Category): Int {
+            return when (category) {
+                Warning -> 0
+                Privileged -> 1
+                Prohibition -> 2
+                else -> 3
             }
         }
+
     }
 }
